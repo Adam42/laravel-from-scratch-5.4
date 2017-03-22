@@ -11,10 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/tasks', function () {
 
-	$tasks = DB::table('tasks')->get();
+#	$tasks = DB::table('tasks')->get();
 
+	$tasks = App\Task::all();
 
 /*	$tasks = [
 		'Go to the store',
@@ -22,7 +23,7 @@ Route::get('/', function () {
 		'Clean the house',
 	];
 */
-	return view('welcome', compact('tasks'));
+	return view('tasks.index', compact('tasks'));
 
 /* Just a few different ways of passing in data
 
@@ -39,6 +40,17 @@ Route::get('/', function () {
     ]
     );
 */
+});
+
+Route::get('/tasks/{task}', function($id){
+
+#	$task = DB::table('tasks')->find($id);
+
+	$task = App\Task::find($id);
+
+	return view('tasks.show', compact('task'));
+
+##	dd($task); //dump and die helper func
 });
 
 Route::get('/about', function() {
