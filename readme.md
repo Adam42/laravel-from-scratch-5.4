@@ -1,3 +1,13 @@
+To start this project from scratch:
+
+clone the repo
+composer install
+valet link app-name
+create .env file
+php artisan migrate
+php artisan key:generate
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
