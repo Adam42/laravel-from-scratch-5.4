@@ -23,7 +23,7 @@
             </div>
         </form>
 
-        @include('layouts.errors');
+        @include('layouts.errors')
 
     </div>
 @endsection
