@@ -17,4 +17,19 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function addCOmment($body){
+
+        $this->comments()->create(compact('body'));
+
+
+/*lognform way but see above where eloquent comments referenced as function instead of property
+sets id automatically because of relationship
+        Comment::create([
+            'body' => $body,
+            'post_id' => $this->id
+        ]);
+*/
+
+    }
 }
