@@ -18,6 +18,10 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
+    /**
+     *  Saves comment and associates it with a post
+     *  @param string
+     */
     public function addComment($body){
 
         $this->comments()->create(compact('body'));
