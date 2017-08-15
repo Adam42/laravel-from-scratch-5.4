@@ -36,4 +36,9 @@ sets post id automatically because of relationship
 */
 
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
