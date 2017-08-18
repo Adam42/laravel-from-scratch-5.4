@@ -37,13 +37,17 @@ class PostsController extends Controller
             'body' => 'required'
         ]);
 
-        $post = new Post;
+        auth()->user()->publish(
+            new Post(request(['title', 'body']))
+        );
 
-        $post->title = request('title');
-        $post->body = request('body');
-        $post->user_id = auth()->id();
+ #       $post = new Post;#
 
-        $post->save();
+#        $post->title = request('title');
+#        $post->body = request('body');
+#        $post->user_id = auth()->id();#
+
+#        $post->save();
 
         //Or, an alternative way of doing all of the above
   /* This method will not work by default because of mass assignment
