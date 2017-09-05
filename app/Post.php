@@ -60,7 +60,7 @@ sets post id automatically because of relationship
     {
         return static::selectRaw(' year(created_at)  year,  monthname(created_at)  month,  count(*) published')
             ->groupBy('year','month')
-            ->orderByRaw('min(created_at)')
+            ->orderByRaw('min(created_at) desc')
             ->get()
             ->toArray();
     }
